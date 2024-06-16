@@ -1,3 +1,4 @@
+
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
@@ -7,35 +8,58 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 const collectEmployees = function() {
 
 
-  let keepAdding = true;
+  const keepAdding = true;
+  
 
   while (keepAdding) {
  
      // Ask user for their input
-    let userInput1 = window.prompt("Enter first name:");
+    let firstName = window.prompt("Enter first name:");
   
-      if (userInput1) {
-       let userInput2 = window.prompt("Enter last name:");
+      if (firstName) {
+       let lastName = window.prompt("Enter last name:");
+       
      
-      if (userInput2) {
-          let userInput3 = window.prompt("Enter salary:");
-        } if (!userInput2) {
-          alert ("Input2 has been Cancelled");
-        }
-
-      if (userInput3) {
-          let keepAdding = window.confirm("Add another Employee?");
-        } else if (!userInput3) {
-          alert ("Input3 has been Cancelled");}
+        if (lastName) {
+          let salary = window.prompt("Enter salary:");
+         
+         if (salary && !isNaN(salary)) {
+            
+            let keepAdding = window.confirm("Add another Employee?");
+             
+            
+              
+            if (!keepAdding)  {
+              alert ("You have opted to not add another employee");
+            return;} 
+              
         
-      } else if (!userInput1) {
+          }else if (isNaN(salary)) {
+            alert ("Please enter a valid number.");
+            number = 0
+
+              
+              
+          }else if (!salary) {
+            alert ("Input3 has been Cancelled");
+            return;
+              }
+
+
+
+        } else if (!lastName) {
+          alert ("Input2 has been Cancelled");
+          return;
+          } 
+        
+      } else if (!firstName) {
         alert ("Input1 has been Cancelled");
-      }
+        return;
+        }
   }
  
 
 }
-
 
 
 
