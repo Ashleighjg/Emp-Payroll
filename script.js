@@ -18,7 +18,7 @@ const collectEmployees = function() {
 
   while (keepAdding) {
  
-     // Ask user for their input
+     // Asks user for their input
     let firstName = window.prompt("Enter first name:");
 
       if (firstName) {
@@ -30,8 +30,7 @@ const collectEmployees = function() {
          
           if (salary && !isNaN(salary)) {
 
-            
-
+            // creates employee object array for table
             let objArray = {
               firstName: firstName,
               lastName: lastName,
@@ -42,7 +41,7 @@ const collectEmployees = function() {
 
            
 
-          
+          //satisfies salary input must be a number
         
           }else if (isNaN(salary)) {
             alert ("Please enter a valid number.");
@@ -66,11 +65,11 @@ const collectEmployees = function() {
         return;
         }
 
-
+    //Option to add another employee
     let keepAdding = window.confirm("Add another Employee?");
 
          
-
+    //Return array of employees
         if (!keepAdding)  {
           return employeesArray;
 
@@ -95,12 +94,20 @@ const average = total / employeesArray.length;
 
 console.log (`"Average employe salary between our ${employeesArray.length} employee(s) is`, average);
 
+
+
 }
 
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
+
+
+  const randomIndex = Math.floor(Math.random() * employeesArray.length);
+  const randomElement = employeesArray[randomIndex];
+  console.log(randomElement)
+
 }
 
 
