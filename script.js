@@ -85,7 +85,7 @@ const collectEmployees = function() {
 
 
 
-// Display the average salary
+// Display the average salary along with the total number of employees
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
 
@@ -99,7 +99,7 @@ console.log (`"Average employe salary between our ${employeesArray.length} emplo
 }
 
 
-// Select a random employee
+// Select a random employee and log to the console
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
 
@@ -181,13 +181,13 @@ const trackEmployeeData = function() {
   const employees = collectEmployees();
 
   console.table(employees);
-
+//Places employees  on the table using displayAverageSalary function
   displayAverageSalary(employees);
 
   console.log('==============================');
-
+//execute getRandomEmployee function to log random employees to the console
   getRandomEmployee(employees);
-
+//sort employees by last name
   employees.sort(function(a,b) {
     if (a.lastName < b.lastName) {
       return -1;
