@@ -10,6 +10,7 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 const keepAdding = true;
 
 
+
 const collectEmployees = function() {
   
   
@@ -29,13 +30,15 @@ const collectEmployees = function() {
          
           if (salary && !isNaN(salary)) {
 
-            let obj = {
+            
+
+            let objArray = {
               firstName: firstName,
               lastName: lastName,
               salary: salary
             };
           
-            employeesArray.push(obj);
+            employeesArray.push(objArray);
 
            
 
@@ -78,17 +81,21 @@ const collectEmployees = function() {
 
 
 }
-  
 
+  
 
 
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
+
+const total = employeesArray.reduce((acc, obj) => acc + obj.salary, 0);
+const average = total / employeesArray.length;
+
+console.log (`"Average employe salary between our ${employeesArray.length} employee(s) is`, average);
+
 }
-
-
 
 
 // Select a random employee
