@@ -5,18 +5,21 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 // TODO: Get user input to create and return an array of employee objects
 // Collect employee data
+
+
+const keepAdding = true;
+
+
 const collectEmployees = function() {
-
-  let employeesarray = [];
-
-  const keepAdding = true;
   
+  
+  let employeesArray = [];
 
   while (keepAdding) {
  
      // Ask user for their input
     let firstName = window.prompt("Enter first name:");
-  
+
       if (firstName) {
        let lastName = window.prompt("Enter last name:");
        
@@ -24,20 +27,23 @@ const collectEmployees = function() {
         if (lastName) {
           let salary = window.prompt("Enter salary:");
          
-         if (salary && !isNaN(salary)) {
-            
-            let keepAdding = window.confirm("Add another Employee?");
-            
-            
-              
-            if (!keepAdding)  {
-              alert ("You have opted to not add another employee");
-            return;} 
-              
+          if (salary && !isNaN(salary)) {
+
+            let obj = {
+              firstName: firstName,
+              lastName: lastName,
+              salary: salary
+            };
+          
+            employeesArray.push(obj);
+
+           
+
+          
         
           }else if (isNaN(salary)) {
             alert ("Please enter a valid number.");
-            number = 0;
+            salary = 0;
 
               
               
@@ -45,7 +51,6 @@ const collectEmployees = function() {
             alert ("Input3 has been Cancelled");
             return;
               }
-
 
 
         } else if (!lastName) {
@@ -57,21 +62,24 @@ const collectEmployees = function() {
         alert ("Input1 has been Cancelled");
         return;
         }
+
+
+    let keepAdding = window.confirm("Add another Employee?");
+
+         
+
+        if (!keepAdding)  {
+          return employeesArray;
+
+          break;}
+
   }
-
   
-  let obj = {
-    FirstName: firstName,
-    lastName: lastName,
-    salary: salary
-  };
 
-
-  employeesarray.push(obj);
-
-  return employeesarray;
 
 }
+  
+
 
 
 
